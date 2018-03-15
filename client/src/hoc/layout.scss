@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: 120rem;
+    min-width: 20rem;
+    position: relative;
+}
+
+.header {
+    max-width: 120rem;
+    order: -1;
+    width: 100%;
+}
+
+.content {
+    flex: 1 1 auto;
+    order: 2;
+    max-width: 120rem;
+    margin: 0 auto;
+    // display: flex;
+    // align-items: center;
+    background: blue;
+}
+
+.footer {
+    flex: 0 0 auto;
+    order: 4;
+}
