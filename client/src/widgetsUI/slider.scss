@@ -1,0 +1,84 @@
+.featured {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__caption {
+        color:#ffffff;
+        padding: .2rem .5rem;
+        margin-top: 1rem;
+        background: transparent;
+        border-radius: .8rem;
+        font-size: 1rem;
+        font-family: $font-first;
+        transition-timing-function: ease-out;
+        transition-duration: 1s;
+        &:hover {
+            color: burlywood;
+            transition-timing-function: ease-out;
+            transition-duration: 1s;
+            border-color: burlywood;
+        }
+    }
+    &__link {
+        float: right;
+    }
+    &__item {
+        position:relative;
+    }
+
+    &__card {
+        position:absolute;
+        max-width: 600px;
+        background-color: $bg-second;
+        margin: 100px 100px;
+        padding: 10px;
+        bottom:0px;
+        text-decoration: none;
+        left:0;
+        z-index: 5;
+        transition-timing-function: ease-out;
+        transition-duration: 1s;
+        &:hover {
+            opacity: .8;
+            transition-timing-function: ease-out;
+            transition-duration: 1s;
+            .featured__caption {
+                background: $bg-header;
+                transition-timing-function: ease-out;
+                transition-duration: 1s;
+            }
+        }
+    }
+    
+    &__title {
+        font-family: $font-second;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    &__description {
+        font-family: $font-first;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    &__contact-list {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        // box-shadow: 0 0 5px #ddd;
+    }
+    &__contact-item {
+        font-family: $font-second;
+        
+        a {
+            color: $bg-header;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__contact-fa {
+        color: $bg-second;
+        font-size: 1.1rem;
+    }
+}

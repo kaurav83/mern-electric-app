@@ -8,6 +8,12 @@
         display: flex;
         align-items: center;
         padding: .1rem .5rem;
+        justify-content: space-between;
+    }
+    &__text {
+        color: rgba(255, 255, 255, .9);
+        font-size: 1.5rem;
+        font-family: $font-second;
     }
 }
 
@@ -31,7 +37,7 @@
 }
 
 .top-list {
-    margin-left: auto;
+    // margin-left: auto;
     display: flex;
     &__item {
         margin: 0 0 0 1rem;

@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 // import FontAwesome from 'react-fontawesome';
 // import {connect} from 'react-redux';
-// import Services from '../../Services/services';
 
 class MainMenuItems extends Component {
     constructor(props) {
         super(props);
-        this.state = {isOpened: false}
+        this.state = {
+            isOpened: false,
+            innerRouters: []
+        }
 
         this.toggleState = this.toggleState.bind(this);
         this.element = this.element.bind(this);
@@ -36,13 +38,13 @@ class MainMenuItems extends Component {
             activeClass: "main-menu__selected",
             restricted: false
         },
-        {
-            type: 'main-menu__item',
-            text: 'Наши работы',
-            link: '/portfolio',
-            activeClass: "main-menu__selected",
-            restricted: false
-        },
+        // {
+        //     type: 'main-menu__item',
+        //     text: 'Наши работы',
+        //     link: '/portfolio',
+        //     activeClass: "main-menu__selected",
+        //     restricted: false
+        // },
         {
             type: 'main-menu__item',
             text: 'Статьи',
@@ -50,27 +52,27 @@ class MainMenuItems extends Component {
             activeClass: "main-menu__selected",
             restricted: false
         },
-        {
-            type: 'main-menu__item',
-            text: 'Отзывы',
-            link: '/reviews',
-            activeClass: "main-menu__selected",
-            restricted: false
-        },
-        {
-            type: 'main-menu__item',
-            text: 'Доска позора',
-            link: '/fooldesk',
-            activeClass: "main-menu__selected",
-            restricted: false
-        },
-        {
-            type: 'main-menu__item',
-            text: 'О нас',
-            link: '/about',
-            activeClass: "main-menu__selected",
-            restricted: false
-        },
+        // {
+        //     type: 'main-menu__item',
+        //     text: 'Отзывы',
+        //     link: '/reviews',
+        //     activeClass: "main-menu__selected",
+        //     restricted: false
+        // },
+        // {
+        //     type: 'main-menu__item',
+        //     text: 'Доска позора',
+        //     link: '/fooldesk',
+        //     activeClass: "main-menu__selected",
+        //     restricted: false
+        // },
+        // {
+        //     type: 'main-menu__item',
+        //     text: 'О нас',
+        //     link: '/about',
+        //     activeClass: "main-menu__selected",
+        //     restricted: false
+        // },
         {
             type: 'main-menu__item',
             text: 'Контакты',
@@ -84,35 +86,35 @@ class MainMenuItems extends Component {
         {
             type: 'main-submenu__item',
             text: 'Проводка в квартире',
-            link: '/services/installation-apartment',
-            activeClass: "main-submenu__selected",
-            restricted: false
-        },
-        {
-            type: 'main-submenu__item',
-            text: 'Проводка в доме',
-            link: '/services/installation-house',
+            link: '/services/5aad420ceff00c4e1c20b43e',
             activeClass: "main-submenu__selected",
             restricted: false
         },
         {
             type: 'main-submenu__item',
             text: 'Молниезащита и заземление',
-            link: '/services/lightning-protection',
+            link: '/services/5aad4366eff00c4e1c20b43f',
             activeClass: "main-submenu__selected",
             restricted: false
         },
         {
             type: 'main-submenu__item',
-            text: 'Сборка электрощита',
-            link: '/services/billboard',
+            text: 'Сборка и монтаж электрощита',
+            link: '/services/5ab00fd7d75f4e0cac68056e',
             activeClass: "main-submenu__selected",
             restricted: false
         },
         {
             type: 'main-submenu__item',
-            text: 'Подключение автоматов УЗО',
-            link: '/services/connection-machines',
+            text: 'Подключение УЗО и автоматов',
+            link: '/services/5ab01007d75f4e0cac68056f',
+            activeClass: "main-submenu__selected",
+            restricted: false
+        },
+        {
+            type: 'main-submenu__item',
+            text: 'Электрический теплый пол',
+            link: '/services/5ab0101cd75f4e0cac680570',
             activeClass: "main-submenu__selected",
             restricted: false
         }
@@ -141,7 +143,7 @@ class MainMenuItems extends Component {
                                 
                         }) 
                     }
-                    </ul> : null
+                </ul> : null
             return (
                 <li key={i} className={item.type} onClick={this.toggleState}> 
                     <a className={item.activeClass}>
@@ -176,6 +178,7 @@ class MainMenuItems extends Component {
         <ul className="main-menu">
             {this.showItems()}
         </ul>
+        
         );
     }
     

@@ -1,0 +1,86 @@
+.footer {
+    background: $bg-header;
+    &__layout {
+        display: flex;
+        justify-content: space-between;
+        max-width: 75rem;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        // align-items: center;
+        padding: 1rem;
+        align-content: stretch;
+    }
+    &__logo-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__text {
+        max-width: 15rem;
+        color: rgba(255, 255, 255, .9);
+        font-size: .8rem;
+    }
+
+    &__copyright {
+        text-align: center;
+        font-family: 'Cinzel Decorative';
+        font-size: .8rem; 
+        color: rgba(255, 255, 255, .9);
+        padding: 2rem 0 1rem 0;
+    }
+
+    &__title {
+        padding: 0 0 1rem 0;
+        color: rgba(255, 255, 255, .9);
+        text-align: center;
+    }
+
+    &__main-item {
+        margin-bottom: .5rem;
+        list-style-type: disc;
+        list-style-position: inside;
+        color: rgba(255, 255, 255, .9);
+        &:hover {
+            color: rgba($bg-second, 1);
+            a {
+                color: rgba($bg-second, 1);
+            }
+        } 
+    }
+
+    &__main-link {
+        color: rgba(255, 255, 255, .9);
+        font-size: .8rem;
+    }
+    &__sub-item {
+        margin-bottom: .5rem;
+        list-style-type: disc;
+        list-style-position: inside;
+        color: rgba(255, 255, 255, .9);
+        &:hover {
+            color: rgba($bg-second, 1);
+            a {
+                color: rgba($bg-second, 1);
+            }
+        } 
+    }
+    &__sub-link {
+        color: rgba(255, 255, 255, .9);
+        font-size: .8rem;
+    }
+}
+
+.social {
+    display: flex;
+    &__item {
+        margin-right: .5rem;
+        margin-left: .5rem;
+    }
+    &__link {
+        color: rgba(255, 255, 255, .9);
+        font-size: 1.3rem;
+        &:hover {
+            color: rgba($bg-second, 1);
+        }
+    }
+}

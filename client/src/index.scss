@@ -5,7 +5,11 @@
 
 @import './components/LogoForm/logoForm';
 @import './components/Header/MainMenu/main-menu';
-
-.active {
-    // color: red;
-}
+@import './widgetsUI/slider';
+@import './components/Services/service';
+@import './components/Home/home';
+@import './components/Feedback/contact_form';
+@import './components/Prices/prices';
+@import './components/Feedback/feedback';
+@import './components/Footer/footer';
+@import './decorators/tabs/tabs';

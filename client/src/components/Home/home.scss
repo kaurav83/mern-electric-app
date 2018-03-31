@@ -1,0 +1,112 @@
+.home-title {
+    max-width: 75rem;
+    margin: 4rem auto 2rem;
+    
+    &__past-slider {
+        margin: 0 auto;
+        width: fit-content;
+        border-bottom: .125rem solid black;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+.itemsService {
+    max-width: 75rem;
+    margin: 0 auto;
+    box-shadow: 0 0 .25rem #aaa;
+}
+
+.list-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem 0;
+    &__icon {
+        max-width: 3rem;
+        width: 100%;
+    }
+    &__item {
+        // border: .1rem solid #000;
+        box-shadow: 0 0 .25rem #ccc;
+        text-align: center;
+        background: "red";
+        box-sizing: border-box;
+        flex: 0 1 30%;
+        min-width: 12rem;
+        margin: .5rem;
+        padding: 1rem;
+    }
+    &__text {
+        margin-top: .5rem;
+    }
+}
+
+.prerequisites {
+    max-width: 75rem;
+    margin: 0 auto;
+    &__title {
+        text-align: center;
+        width: fit-content;
+        border-bottom: .125rem solid black;
+        font-size: 1.5rem;
+    }
+    &__wrap {
+        box-shadow: 0 0 .25rem #aaa;
+        padding: 1.5rem;
+    }
+    &__picture {
+        text-align: center;
+    }
+    &__img {
+        max-width: 20rem;
+    }
+    &__text {
+        margin-top: 1.5rem;
+        color: $bg-header;
+    }
+    &__Dop {
+        margin-top: 2rem;
+    }
+    &__title-second {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    &__text-second {
+        margin-top: 1rem;
+        color: $bg-header;
+    }
+}
+
+.listAdvantages {
+    max-width: 75rem;
+    margin: 0 auto;
+
+    &__title {
+        margin: 4rem auto 2rem;
+        text-align: center;
+        width: fit-content;
+        border-bottom: .125rem solid black;
+        font-size: 1.5rem;
+    }
+
+    &__wrap {
+        box-shadow: 0 0 .25rem #aaa;
+        padding: 1rem;
+    }
+
+    &__list {
+        margin: .5rem;
+        color: $bg-header;
+    }
+
+    &__item {
+        margin-bottom: 1rem;
+        &:before {
+            content: '\f005';
+            font-family: FontAwesome;
+            padding-right: .3rem;
+            color: $bg-second;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.price-tables {
+    max-width: 75rem;
+    margin: 1rem auto;
+    box-shadow: 0 0 .25rem #aaa;
+    padding: 1rem;
+}
+.price-title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.price-block {
+    margin-top: 3rem;
+}
+
+.price-top {
+    padding: 1rem 1rem 0 1rem;
+    color: $bg-header;
+    &__text {
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    &__plain-text {
+        margin: 1rem 0;
+        font-size: 1.1rem;
+    }
+    &__list {
+        margin-top: 1rem;
+        padding: .5rem;
+        font-size: 1.1rem;
+    }
+    &__item {
+        list-style-type: square;
+        margin: .5rem;
+    }
+}
+
+.table-price {
+    color: $bg-header;
+    border: .1rem solid $bg-header;
+    margin: 0 auto;
+    &__caption {
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-family: $font-first;
+        margin: .5rem 0;
+    }
+    &__header {
+        background: $bg-header;
+        color: rgba(255, 255, 255, .9);
+    }
+    &__th {
+        padding: .4rem;
+    }
+    &__td {
+        padding: .4rem 1rem;
+        border: .0625rem solid rgba($bg-header, .3);
+        text-align: center;
+        &:first-child {
+            text-align: left;
+            padding: 0;
+            padding-right: 1rem;
+        }
+    }
+    &__trBody {
+        &:hover {
+            background: $bg-header;
+            color: rgba(255, 255, 255, .9);
+        }
+    }
+}
