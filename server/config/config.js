@@ -8,7 +8,7 @@ const config = {
         DATABASE: 'mongodb://localhost:27017/electrification'
     }
 }
-
+//SECRET: SUPERSECRET я написал в  Heroku
 exports.get = function get(env) {
     return config[env] || config.default
 }
