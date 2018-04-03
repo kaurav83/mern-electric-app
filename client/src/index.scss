@@ -2,6 +2,7 @@
 @import './hoc/reset'; 
 @import './hoc/variables';
 @import './hoc/mixins';
+@import './hoc/preloader';
 
 @import './components/LogoForm/logoForm';
 @import './components/Header/MainMenu/main-menu';
@@ -13,3 +14,5 @@
 @import './components/Feedback/feedback';
 @import './components/Footer/footer';
 @import './decorators/tabs/tabs';
+@import './components/Header/SideNav/sidenav';
+

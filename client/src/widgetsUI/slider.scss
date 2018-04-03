@@ -63,9 +63,13 @@
     }
     &__contact-list {
         display: flex;
-        padding: 1rem;
         justify-content: space-between;
-        // box-shadow: 0 0 5px #ddd;
+        @include phonesMin2 {
+            padding: .5rem;
+        }
+        @include tabletsMin {
+            padding: 1rem;
+        }
     }
     &__contact-item {
         font-family: $font-second;
@@ -75,10 +79,28 @@
             &:hover {
                 text-decoration: underline;
             }
+            @include phonesMin2 {
+                font-size: .7rem;
+            }
+            @include phonesMin {
+                font-size: .9rem;
+            }
+            @include tabletsMin {
+                font-size: inherit;
+            }
         }
     }
     &__contact-fa {
         color: $bg-second;
         font-size: 1.1rem;
+        @include phonesMin2 {
+            font-size: .7rem;
+        }
+        @include phonesMin {
+            font-size: .9rem;
+        }
+        @include tabletsMin {
+            font-size: inherit;
+        }
     }
 }

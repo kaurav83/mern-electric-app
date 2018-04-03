@@ -5,13 +5,20 @@
     padding: 1rem;
 }
 .price-title {
-    margin: 2rem 0;
     font-size: 2rem;
     text-align: center;
+    @include phonesMin2 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+    @include tabletsMin {
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
 }
 
 .price-block {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .price-top {
@@ -41,10 +48,15 @@
     border: .1rem solid $bg-header;
     margin: 0 auto;
     &__caption {
-        font-size: 1.5rem;
         font-weight: 400;
         font-family: $font-first;
         margin: .5rem 0;
+        @include phonesMin2 {
+            font-size: 1.2rem;
+        }
+        @include tabletsMin {
+            font-size: 1.5rem;
+        }
     }
     &__header {
         background: $bg-header;
@@ -52,6 +64,12 @@
     }
     &__th {
         padding: .4rem;
+        @include phonesMin2 {
+            padding: 0;
+        }
+        @include tabletsMin {
+            padding: .4rem;
+        }
     }
     &__td {
         padding: .4rem 1rem;
@@ -61,6 +79,12 @@
             text-align: left;
             padding: 0;
             padding-right: 1rem;
+        }
+        @include phonesMin2 {
+            padding: 0;
+        }
+        @include tabletsMin {
+            padding: .4rem 1rem;
         }
     }
     &__trBody {

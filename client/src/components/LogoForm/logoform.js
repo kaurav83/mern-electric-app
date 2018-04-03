@@ -1,12 +1,33 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import Register from '../Register/register';
 import Logo from '../Logo/logo';
+import FontAwesome from 'react-fontawesome';
+import SideNav from '../Header/SideNav/sideNav';
 
-const LogoForm = () => {
+const LogoForm = (props) => {
+    const navBars = () => {
+        return (
+            <div>
+                <FontAwesome name="bars"
+                    onClick={props.onOpenNav}
+                    style={{
+                        color: '#fff',
+                        padding: '1rem',
+                        cursor: 'pointer'
+                    }}
+                />
+            </div>
+        )
+    }
     return (
         <div className="logoForm">
             <div className="logoForm__container">
+                <div className="sidenav"><SideNav {...props} /></div>
+                <div className="headerOpt" style={{ position: 'absolute' }}>
+                    <div>
+                        {navBars()}
+                    </div>
+                </div>
                 <Logo />
                 <p className="logoForm__text">Услуги электрика в Ташкенте</p>
                 <ul className="top-list">

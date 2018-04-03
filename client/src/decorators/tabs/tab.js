@@ -1,11 +1,10 @@
 import React from 'react';
 
 const Tab = (props) => {
-    const {tabtext, icon, activetab, cardindex, onClick} = props;
+    const {tabtext, activetab, cardindex, onClick} = props;
     const isActive = activetab === cardindex ? ' active' : '';
     return (
         <div className={`tab${isActive}`} onClick={onClick}>
-            {/* {icon? <FontAwesome icon={Icons[`fa${icon}`]} /> : ''} */}
             {tabtext}
         </div>
     );

@@ -1,6 +1,12 @@
 .mainMenuContainer {
     background: $bg-second;
     width: 100%;
+    @include phonesMin2 {
+        display: none;
+    }
+    @include tabletsMin {
+        display: block;
+    }
 }
 
 .main-menu {

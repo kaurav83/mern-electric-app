@@ -1,9 +1,14 @@
 .feedback {
     max-width: 75rem;
-    margin: 1rem auto;
-    padding: 1rem 0;
     box-shadow: 0 0 0.25rem #aaa;
-    
+    @include phonesMin2 {
+        margin: 0 auto;
+        padding: 0;
+    }
+    @include tabletsMin {
+        margin: 1rem auto;
+        padding: 1rem 0;
+    }
     &__location {
         display: flex;
         justify-content: space-around;
@@ -11,7 +16,12 @@
         align-items: center;
     }
     &__contactForm {
-        margin-top: 5rem;
+        @include phonesMin2 {
+            margin-top: 0rem;
+        }
+        @include tabletsMin {
+            margin-top: 5rem;
+        }
     }
 }
 .marker {
@@ -66,9 +76,15 @@
 }
 
 .feedback-title {
-    margin: 2rem 0;
-    font-size: 2rem;
     text-align: center;
+    @include phonesMin2 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+    @include tabletsMin {
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
 }
 
 .requisites-icon  {

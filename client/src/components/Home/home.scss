@@ -1,13 +1,22 @@
 .home-title {
     max-width: 75rem;
-    margin: 4rem auto 2rem;
-    
+    @include phonesMin2 {
+        margin: 2rem auto 1rem;
+    }
+    @include tabletsMin {
+        margin: 4rem auto 2rem;
+    }
     &__past-slider {
         margin: 0 auto;
         width: fit-content;
-        border-bottom: .125rem solid black;
-        font-size: 1.5rem;
         text-align: center;
+        color: $bg-second;
+        @include phonesMin2 {
+            font-size: 1.2rem;
+        }
+        @include tabletsMin {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -20,11 +29,25 @@
 .list-services {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 1rem 0;
+    @include phonesMin2 {
+        padding: 0;
+        // align-items: center;
+    }
+    @include tabletsMin {
+        padding: 1rem 0;
+        justify-content: space-around;
+        // align-items: initial;
+    }
     &__icon {
-        max-width: 3rem;
         width: 100%;
+        @include phonesMin2 {
+            max-width: 1.5rem;
+            margin-right: .5rem;
+        }
+        @include tabletsMin {
+            max-width: 3rem;
+            margin-right: 0;
+        }
     }
     &__item {
         // border: .1rem solid #000;
@@ -32,13 +55,30 @@
         text-align: center;
         background: "red";
         box-sizing: border-box;
-        flex: 0 1 30%;
         min-width: 12rem;
-        margin: .5rem;
-        padding: 1rem;
+        @include phonesMin2 {
+            width: 100%;
+            align-items: center;
+            display: flex;
+            padding: .5rem;
+        }
+        @include tabletsMin {
+            flex: 0 1 30%;
+            margin: .5rem;
+            align-items: initial;
+            display: block;
+            padding: 1rem;
+        }
     }
     &__text {
-        margin-top: .5rem;
+        @include phonesMin2 {
+            margin-top: 0;
+            text-align: left;
+        }
+        @include tabletsMin {
+            margin-top: .5rem;
+            text-align: initial;
+        }
     }
 }
 
@@ -48,8 +88,16 @@
     &__title {
         text-align: center;
         width: fit-content;
-        border-bottom: .125rem solid black;
-        font-size: 1.5rem;
+        // border-bottom: .125rem solid black;
+        color: $bg-second;
+        @include phonesMin2 {
+            margin: 1rem auto 1rem;
+            font-size: 1.2rem;
+        }
+        @include tabletsMin {
+            margin: 4rem auto 2rem;
+            font-size: 1.5rem;
+        }
     }
     &__wrap {
         box-shadow: 0 0 .25rem #aaa;
@@ -83,11 +131,17 @@
     margin: 0 auto;
 
     &__title {
-        margin: 4rem auto 2rem;
         text-align: center;
         width: fit-content;
-        border-bottom: .125rem solid black;
-        font-size: 1.5rem;
+        color: $bg-second;
+        @include phonesMin2 {
+            margin: 1rem auto 1rem;
+            font-size: 1.2rem;
+        }
+        @include tabletsMin {
+            margin: 4rem auto 2rem;
+            font-size: 1.5rem;
+        }
     }
 
     &__wrap {
