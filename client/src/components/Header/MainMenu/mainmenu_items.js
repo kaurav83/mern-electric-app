@@ -181,14 +181,6 @@ class MainMenuItems extends Component {
         
         );
     }
-    
 };
 
-// function mapStateToProps(state) {
-//     return {
-//         user: state.user
-//     };
-// }
-
-// export default connect(mapStateToProps)(MainMenuItems);
 export default MainMenuItems;
