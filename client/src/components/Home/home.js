@@ -6,7 +6,8 @@ import Prerequisites from './prerequisites';
 import ListAdvantage from './listAdvantage';
 import ContactForm from '../Feedback/contact_form';
 
-const Home = () => {
+const Home = (props) => {
+    console.log(props, 'HomeComponent')
     return (
         <div>
             <Slider 

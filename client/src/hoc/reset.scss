@@ -1,4 +1,7 @@
 @import './variables';
+.error {
+	color: $error-color;
+}
 
 body {
 	margin: 0px;

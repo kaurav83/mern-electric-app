@@ -109,6 +109,12 @@ class SideNavItems extends Component {
                     </Link>
                     </li>
                     <li className="sidenav-items__item">
+                        <Link to="/dashboard" className="sidenav-items__link">
+                            <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
+                            Админка
+                        </Link>
+                    </li>
+                    <li className="sidenav-items__item">
                         <Link to="/register" className="sidenav-items__link">
                             <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
                             Регистрация

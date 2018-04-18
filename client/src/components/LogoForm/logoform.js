@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome';
 import SideNav from '../Header/SideNav/sideNav';
 
 const LogoForm = (props) => {
+    console.log(props, 'from LofoForm')
     const navBars = () => {
         return (
             <div>
@@ -32,7 +33,9 @@ const LogoForm = (props) => {
                 <p className="logoForm__text">Услуги электрика в Ташкенте</p>
                 <ul className="top-list">
                     <li className="top-list__item"><NavLink to="/register" exact className="top-list__link">Регистрация</NavLink></li>
-                    <li className="top-list__item"><NavLink to="/login" exact className="top-list__link">Вход</NavLink></li>
+                    <li className="top-list__item"><NavLink to="/login-admin" exact className="top-list__link">Служебный</NavLink></li>
+                    <li className="top-list__item"><NavLink to="/login-user" exact className="top-list__link">Вход</NavLink></li>
+                    <li className="top-list__item"><NavLink to="/user/logout" exact className="top-list__link">Выход</NavLink></li>
                 </ul>
             </div>
 

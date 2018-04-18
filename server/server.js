@@ -12,8 +12,11 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || config.DATABASE)
     .then(() => console.log('MongoDB has started...'))
     .catch(e => console.log(e))
-
+    
 const { User } = require('./models/user');
+const { auth } = require('./middleware/auth');
+const { authadmin } = require('./middleware/auth_admin');
+const { Admin } = require('./models/admin');
 const { Article } = require('./models/article');
 const { Slider } = require('./models/slider');
 const { Home } = require('./models/home');
@@ -51,6 +54,61 @@ app.get('/api/articles', (req, res) => {
             if (err) return res.status(400).send(err);
             res.send(doc);
         })
+})
+
+app.get('/api/getAdmin', (req, res) => {
+    let id = req.query.id;
+
+    Admin.findById(id, (err, doc) => {
+        if (err) return res.status(400).send(err);
+        res.json({
+            name: doc.name,
+            lastname: doc.lastname
+        })
+    })
+})
+
+app.get('/api/admin_posts', (req, res) => {
+    Article.find({ownerId: req.query.admin})
+        .exec((err, docs) => {
+            if (err) return res.status(400).send(err);
+            res.send(docs);
+        })
+})
+
+app.get('/api/users', (req, res) => {
+    User.find({}, (err, users) => {
+        if (err) return res.status(400).send(err);
+        res.status(200).send(users);
+    })
+})
+
+app.get('/api/auth', auth, (req, res) => {
+    res.json({
+        isAuth: true,
+        id: req.user._id,
+        email: req.user.email,
+        name: req.user.name,
+        lastname: req.user.lastname
+    })
+})
+
+app.get('/api/authadmin', authadmin, (req, res) => {
+    res.json({
+        isAuth: true,
+        id: req.admin._id,
+        email: req.admin.email,
+        name: req.admin.name,
+        lastname: req.admin.lastname
+    })
+})
+
+app.get('/api/logout', auth, (req, res) => {
+    req.user.deleteToken(req.token, (err, user) => {
+        if (err) return res.status(400).send(err);
+
+        res.sendStatus(200);
+    })
 })
 
 app.get('/api/slides', (req, res) => {
@@ -98,6 +156,76 @@ app.post('/api/article', (req, res) => {
         res.status(200).json({
             post: true,
             articleId: doc._id
+        })
+    })
+})
+
+app.post('/api/register', (req, res) => {
+    const user = new User(req.body);
+
+    user.save((err, doc) => {
+        if (err) return res.json({success: false});
+        res.status(200).json({
+            success: true,
+            user: doc
+        })
+    })
+})
+
+// app.post('/api/registerAdmin', (req, res) => {
+//     const admin = new Admin(req.body);
+
+//     admin.save((err, doc) => {
+//         if (err) return res.json({success: false});
+//         res.status(200).json({
+//             success: true,
+//             admin: doc
+//         })
+//     })
+// })
+
+app.post('/api/login', (req, res) => {
+    User.findOne({'email': req.body.email}, (err, user) => {
+        if (!user) return res.json({isAuth: false, message: "Не удалось авторизоваться, пользователя с таким email не существует"})
+
+        user.comparePassword(req.body.password, (err, isMatch) => {
+            if (!isMatch) return res.json({
+                isAuth: false,
+                message: 'Неверный пароль'
+            });
+
+            user.generateToken((err, user) => {
+                if (err) return res.status(400).send(err);
+
+                res.cookie('auth', user.token).send({
+                    isAuth: true,
+                    id: user._id,
+                    email: user.email
+                })
+            })
+        })
+    })
+})
+
+app.post('/api/loginAdmin', (req, res) => {
+    Admin.findOne({'email': req.body.email}, (err, admin) => {
+        if (!admin) return res.json({isAuth: false, message: "Не удалось авторизоваться, пользователя с таким email не существует"})
+
+        admin.comparePassword(req.body.password, (err, isMatch) => {
+            if (!isMatch) return res.json({
+                isAuth: false,
+                message: 'Неверный пароль'
+            });
+
+            admin.generateToken((err, admin) => {
+                if (err) return res.status(400).send(err);
+
+                res.cookie('authadmin', admin.token).send({
+                    isAuth: true,
+                    id: admin._id,
+                    email: admin.email
+                })
+            })
         })
     })
 })

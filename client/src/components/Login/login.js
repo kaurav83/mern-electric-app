@@ -1,9 +1,11 @@
 import React from 'react';
+import LoginAdmin from '../../containers/Admin/login';
+import LoginUser from '../../containers/User/login_user';
 
 const Login = () => {
     return (
         <div>
-            Login user
+            login
         </div>
     );
 };

@@ -66,13 +66,13 @@ class MainMenuItems extends Component {
         //     activeClass: "main-menu__selected",
         //     restricted: false
         // },
-        // {
-        //     type: 'main-menu__item',
-        //     text: 'О нас',
-        //     link: '/about',
-        //     activeClass: "main-menu__selected",
-        //     restricted: false
-        // },
+        {
+            type: 'main-menu__item',
+            text: 'Админка',
+            link: '/dashboard',
+            activeClass: "main-menu__selected",
+            restricted: false
+        },
         {
             type: 'main-menu__item',
             text: 'Контакты',

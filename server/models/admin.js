@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('./../config/config').get(process.env.NODE_ENV);
 const SALT_I = 10;
 
-const userSchema = mongoose.Schema({
+const adminSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
@@ -33,17 +33,17 @@ const userSchema = mongoose.Schema({
     }
 })
 
-userSchema.pre('save', function(next) {
-    var user = this;
+adminSchema.pre('save', function(next) {
+    var admin = this;
 
-    if (user.isModified('password')) {
+    if (admin.isModified('password')) {
         bcrypt.genSalt(SALT_I, function(err, salt) {
             if (err) return next(err);
 
-            bcrypt.hash(user.password, salt, function(err, hash) {
+            bcrypt.hash(admin.password, salt, function(err, hash) {
                 if (err) return next(err);
 
-                user.password = hash;
+                admin.password = hash;
                 next();
             })
         })
@@ -52,44 +52,45 @@ userSchema.pre('save', function(next) {
     }
 })
 
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
+adminSchema.methods.comparePassword = function(candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if (err) return cb(err);
         cb(null, isMatch);
     })
 }
 
-userSchema.methods.generateToken = function(cb) {
-    var user = this;
-    var token = jwt.sign(user._id.toHexString(), config.SECRET);
+adminSchema.methods.generateToken = function(cb) {
+    var admin = this;
+    
+    var token = jwt.sign(admin._id.toHexString(), config.SECRET);
 
-    user.token = token;
-    user.save(function(err, user) {
+    admin.token = token;
+    admin.save(function(err, admin) {
         if (err) return cb(err);
-        cb(null, user);
+        cb(null, admin);
     })
 }
 
-userSchema.statics.findByToken = function(token, cb) {
-    var user = this;
-
+adminSchema.statics.findByToken = function(token, cb) {
+    var admin = this;
     jwt.verify(token, config.SECRET, function(err, decode) {
-        user.findOne({"_id": decode, "token": token}, function(err, user) {
+        admin.findOne({"_id": decode, "token": token}, function(err, admin) {
+            
             if (err) return cb(err);
-            cb(null, user);
+            cb(null, admin);
         })
     })
 }
 
-userSchema.methods.deleteToken = function(token, cb) {
-    var user = this;
+adminSchema.methods.deleteToken = function(token, cb) {
+    var admin = this;
 
-    user.update({$unset: {token: 1}}, (err, user) => {
+    admin.update({$unset: {token: 1}}, (err, admin) => {
         if (err) return cb(err);
-        cb(null, user);
+        cb(null, admin);
     })
 }
 
-const User = mongoose.model('User', userSchema)
+const Admin = mongoose.model('Admin', adminSchema);
 
-module.exports = {User}
+module.exports = {Admin}
