@@ -11,7 +11,8 @@ class MainMenuItems extends Component {
             innerRouters: []
         }
 
-        this.toggleState = this.toggleState.bind(this);
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
         this.element = this.element.bind(this);
         this.showItems = this.showItems.bind(this);
     }
@@ -120,8 +121,18 @@ class MainMenuItems extends Component {
         }
     ]
 
-    toggleState() {
-        this.setState({isOpened: !this.state.isOpened})
+    showMenu(event) {
+        event.preventDefault();
+        
+        this.setState({isOpened: true}, () => {
+            document.addEventListener('click', this.closeMenu);
+        });
+    }
+
+    closeMenu() {
+        this.setState({isOpened: false}, () => {
+            document.removeEventListener('click', this.closeMenu);
+        });
     }
 
     element(item, i) {
@@ -145,7 +156,7 @@ class MainMenuItems extends Component {
                     }
                 </ul> : null
             return (
-                <li key={i} className={item.type} onClick={this.toggleState}> 
+                <li key={i} className={item.type} onClick={this.showMenu}> 
                     <a className={item.activeClass}>
                         {item.text}
                     </a><i className="fa fa-caret-down"></i>

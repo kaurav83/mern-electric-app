@@ -12,7 +12,7 @@ const Prices = () => {
             <h2 className="price-title">Цены</h2>
             <div className="price-tables">
                 <PriceTop />
-                <TabPanel>
+                <TabPanel activetab={0}>
                     <div tabtext="Монтаж оборудования" >
                         <EquipmentList />
                     </div>
