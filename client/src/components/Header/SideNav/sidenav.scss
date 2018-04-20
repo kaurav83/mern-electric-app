@@ -19,13 +19,13 @@
     &__button {
         cursor: pointer;
         border-bottom: .0625rem solid #fff;
-        padding: .5rem 0;
+        padding: 1rem 0;
         &:hover {
             color: rgba($bg-second, .7);
         }
     }
     &__item {
-        padding: .5rem 0;
+        padding: 1rem 0;
         border-bottom: .0625rem solid #fff;
     }
 }
@@ -33,7 +33,7 @@
 .submenu-sidenav {
     margin: 0 1rem;
     &__item {
-        padding: .5rem 0;
+        padding: 1rem 0;
         // border-top: .0625rem solid #fff;
         border-bottom: .0625rem solid #fff;
     }

@@ -5,22 +5,22 @@ const SocialNetwork = () => {
         <div className="social-block">
             <ul className="social">
                 <li className="social__item">
-                    <a href=""  className="social__link"><i className="fa fa-facebook-square"></i></a>
+                    <a href="https://www.facebook.com/"  className="social__link"><i className="fa fa-facebook-square"></i></a>
                 </li>
                 <li className="social__item">
-                    <a href="" className="social__link"><i className="fa fa-vk"></i></a>
+                    <a href="https://vk.com/" className="social__link"><i className="fa fa-vk"></i></a>
                 </li>
                 <li className="social__item">
-                    <a href="" className="social__link"><i className="fa fa-odnoklassniki-square"></i></a>
+                    <a href="https://ok.ru/" className="social__link"><i className="fa fa-odnoklassniki-square"></i></a>
                 </li>
                 <li className="social__item">
-                    <a href="" className="social__link"><i className="fa fa-twitter-square"></i></a>
+                    <a href="https://twitter.com/" className="social__link"><i className="fa fa-twitter-square"></i></a>
                 </li>
                 <li className="social__item">
-                    <a href="" className="social__link"><i className="fa fa-youtube-square"></i></a>
+                    <a href="https://www.youtube.com/" className="social__link"><i className="fa fa-youtube-square"></i></a>
                 </li>
                 <li className="social__item">
-                    <a href="" className="social__link"><i className="fa fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/" className="social__link"><i className="fa fa-instagram"></i></a>
                 </li>
             </ul>
         </div>

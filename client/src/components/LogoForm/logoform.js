@@ -2,10 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../Logo/logo';
 import FontAwesome from 'react-fontawesome';
+import { connect } from 'react-redux';
 import SideNav from '../Header/SideNav/sideNav';
 
 const LogoForm = (props) => {
-    console.log(props, 'from LofoForm')
+
     const navBars = () => {
         return (
             <div>
@@ -20,6 +21,40 @@ const LogoForm = (props) => {
             </div>
         )
     }
+
+    const showItems = () => {
+        return (
+            props.user.login ?
+                props.user.login.isAuth ?
+
+                    <ul className="top-list">
+                        <li className="top-list__item">
+                            <NavLink to="/user/logout" exact className="top-list__link">
+                                Выход
+                            </NavLink>
+                        </li>
+                        <li className="top-list__item">
+                            <span className="top-list__link top-list__link--modif">
+                                {props.user.login.name} {props.user.login.lastname}
+                            </span>
+                        </li>
+                    </ul>
+                    :
+                    <ul className="top-list">
+                        <li className="top-list__item">
+                            <NavLink to="/register" exact className="top-list__link"
+                            >Регистрация
+                            </NavLink>
+                        </li>
+                        <li className="top-list__item">
+                            <NavLink to="/login-user" exact className="top-list__link">
+                                Вход
+                            </NavLink>
+                        </li>
+                    </ul>
+                : null
+        )
+    }
     return (
         <div className="logoForm">
             <div className="logoForm__container">
@@ -31,16 +66,30 @@ const LogoForm = (props) => {
                 </div>
                 <Logo />
                 <p className="logoForm__text">Услуги электрика в Ташкенте</p>
-                <ul className="top-list">
-                    <li className="top-list__item"><NavLink to="/register" exact className="top-list__link">Регистрация</NavLink></li>
-                    <li className="top-list__item"><NavLink to="/login-admin" exact className="top-list__link">Служебный</NavLink></li>
-                    <li className="top-list__item"><NavLink to="/login-user" exact className="top-list__link">Вход</NavLink></li>
-                    <li className="top-list__item"><NavLink to="/user/logout" exact className="top-list__link">Выход</NavLink></li>
-                </ul>
+                {showItems()}
+
+                {
+                    props.user.login ?
+                        props.user.login.isAuth ?
+                            <div className="logoForm__name">
+                                <span className="logoForm__name-user">
+                                    {props.user.login.name} {props.user.login.lastname}
+                                </span>
+                            </div>
+                            : null
+                        : null
+                }
+
             </div>
 
         </div>
     );
 };
 
-export default LogoForm;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(LogoForm);

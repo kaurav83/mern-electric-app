@@ -78,6 +78,7 @@
         @include tabletsMin {
             margin-top: .5rem;
             text-align: initial;
+            text-align: center;
         }
     }
 }
@@ -161,6 +162,108 @@
             font-family: FontAwesome;
             padding-right: .3rem;
             color: $bg-second;
+        }
+    }
+}
+
+// if isAuth User
+.isAuth-user {
+    @include phonesMin2 {
+        flex-direction: column-reverse;
+        display: flex;
+    }
+    @include tabletsMin {
+        display: flex;
+        max-width: 75rem;
+        margin: 0 auto;
+        flex-direction: row;
+    }
+    &__block {
+        @include phonesMin2 {
+            background: $bg-second;
+            // order: 2;
+        }
+        @include tabletsMin {
+            width: 20rem;
+            background: $bg-second;
+            margin-right: .5rem;
+            border: .0625rem solid $bg-header;
+            box-shadow: 0 0 0.25rem #aaa;
+            padding: .0625rem;
+            // order: 1;
+        }
+    }
+    &__items-service {
+        @include phonesMin2 {
+            // order: -1;
+        }
+        @include tabletsMin {
+            // width: 20rem;
+            // background: $bg-second;
+            // margin-right: .5rem;
+            // border: .0625rem solid $bg-header;
+            // box-shadow: 0 0 0.25rem #aaa;
+            // padding: .0625rem;
+            // order: 2;
+        }
+    }
+    &__title {
+        @include phonesMin2 {
+            font-size: 1.3rem;
+            text-align: center;
+            color: $bg-header;
+            margin: 1rem 0;
+            margin-top: 2rem;
+        }
+        @include tabletsMin {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+    }
+    &__list {
+        padding: .5rem 1.4rem;
+    }
+    &__item {
+        
+        @include phonesMin2 {
+            list-style-position: none;
+            list-style-type: none;
+        }
+        @include tabletsMin {
+            list-style-position: outside;
+            list-style-type: circle;
+            color: $bg-header;
+            transition-timing-function: ease-out;
+            transition-duration: .3s;
+        }
+        &:hover {
+            color: #fff;
+            transition-timing-function: ease-out;
+            transition-duration: .3s;
+        }
+    }
+    &__link {
+        @include phonesMin2 {
+            padding: 1rem 0;
+            display: block;
+            border-bottom: .0625rem solid $bg-header;
+            color: $bg-header;
+            padding-left: .4rem;
+        }
+        @include tabletsMin {
+            display: block;
+            padding: .5rem 0;
+            border-bottom: .0625rem solid $bg-header;
+            color: $bg-header;
+            padding-left: .4rem;
+            transition-timing-function: ease-out;
+            transition-duration: .3s;
+        }
+        &:hover {
+            background: $bg-header;
+            color: #fff;
+            transition-timing-function: ease-out;
+            transition-duration: .3s;
         }
     }
 }

@@ -47,7 +47,7 @@ const Routes = () => {
                 <Route path="/user" exact component={Auth(User, true)}/>
                 <Route path="/admin-posts" exact component={AuthAdmin(AdminPosts, null)} />
                 <Route path="/admin-posts/edit-post/:id" exact component={AuthAdmin(EditArticle, true)} />
-                <Route path="/register" exact component={Auth(Register, true)} />
+                <Route path="/register" exact component={Auth(Register, false)} />
                 <Route path="/user/logout" exact component={Auth(Logout, true)} />
             </Switch>
         </Layout>

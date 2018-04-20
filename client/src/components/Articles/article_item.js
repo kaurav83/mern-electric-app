@@ -13,10 +13,13 @@ const ArticleItem = (item) => {
             <p className="article__review">{
                 item.review.length <= 500 ? 
                     item.review 
-                    : 
-                    item.review.substring(0, 500) 
+                    :
+                    <span>
+                        {item.review.substring(0, 500)} <Link to={`/articles/${item._id}`}>...Читать далее</Link>
+                    </span> 
+                    
                 }
-                <Link to={`/articles/${item._id}`}>...Читать далее</Link>
+                
             </p>
         </li>
         

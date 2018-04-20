@@ -34,6 +34,7 @@ class LoginUser extends Component {
     }
 
     render() {
+        
         let user = this.props.user;
         return (
             <div className="login-container">

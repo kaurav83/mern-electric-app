@@ -41,3 +41,6 @@ class ItemsService extends Component {
 }
 
 export default ItemsService;
+
+
+

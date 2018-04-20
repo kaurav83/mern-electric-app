@@ -39,8 +39,16 @@
     }
 
     &__label {
-        display: block;
-        margin-bottom: .3rem;
+        @include phonesMin2 {
+            display: block;
+            margin-bottom: .3rem;
+            margin-left: .8rem;
+        }
+        @include tabletsMin {
+            display: block;
+            margin-bottom: .3rem;
+            margin-left: 0;
+        }
     }
     &__p {
         margin: .5rem .5rem;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
+import {connect} from 'react-redux';
+// import {authentication} from '../../../actions';
 
 class SideNavItems extends Component {
     constructor() {
@@ -38,7 +40,7 @@ class SideNavItems extends Component {
                         <Link to="/" className="sidenav-items__link">
                             <FontAwesome name="home" style={{marginRight: ".5rem"}} />
                             Главная
-                    </Link>
+                        </Link>
                     </li>
                     <li onClick={this.showMenu} className="sidenav-items__button">
                         <FontAwesome name="bolt" style={{marginRight: ".9rem"}} />
@@ -108,30 +110,62 @@ class SideNavItems extends Component {
                             Контакты
                     </Link>
                     </li>
-                    <li className="sidenav-items__item">
-                        <Link to="/dashboard" className="sidenav-items__link">
-                            <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
-                            Админка
-                        </Link>
-                    </li>
-                    <li className="sidenav-items__item">
-                        <Link to="/register" className="sidenav-items__link">
-                            <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
-                            Регистрация
-                        </Link>
-                    </li>
-                    <li className="sidenav-items__item">
-                        <Link to="/login" className="sidenav-items__link">
-                            <FontAwesome name="sign-in" style={{marginRight: ".5rem"}} />
-                            Вход
-                        </Link>
-                    </li>
-                    {/* <li className="sidenav-items__item">
-                        <Link to="/logout" className="sidenav-items__link">
-                            <FontAwesome name="sign-out" style={{marginRight: ".5rem"}} />
-                            Выход
-                        </Link>
-                    </li> */}
+                    {
+                        this.props.user.login ?
+                            this.props.user.login.isAuth ?
+                                <ul>
+                                    <li className="sidenav-items__item">
+                                        <Link to="/user/logout" className="sidenav-items__link">
+                                            <FontAwesome name="sign-out" style={{marginRight: ".5rem"}} />
+                                            Выход
+                                        </Link>
+                                    </li>
+                                </ul>
+                            : 
+                            <ul>
+                                <li className="sidenav-items__item">
+                                    <Link to="/register" className="sidenav-items__link">
+                                        <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
+                                        Регистрация
+                                    </Link>
+                                </li>
+                                <li className="sidenav-items__item">
+                                    <Link to="/login-user" className="sidenav-items__link">
+                                        <FontAwesome name="sign-in" style={{marginRight: ".5rem"}} />
+                                        Вход
+                                    </Link>
+                                </li>
+                                <li className="sidenav-items__item">
+                                    <Link to="/dashboard" className="sidenav-items__link">
+                                        <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
+                                        Админка
+                                    </Link>
+                                </li>
+                            </ul>
+                            :
+                            <ul>
+                                <li className="sidenav-items__item">
+                                    <Link to="/register" className="sidenav-items__link">
+                                        <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
+                                        Регистрация
+                                    </Link>
+                                </li>
+                                <li className="sidenav-items__item">
+                                    <Link to="/login-user" className="sidenav-items__link">
+                                        <FontAwesome name="sign-in" style={{marginRight: ".5rem"}} />
+                                        Вход
+                                    </Link>
+                                </li>
+                                <li className="sidenav-items__item">
+                                    <Link to="/dashboard" className="sidenav-items__link">
+                                        <FontAwesome name="pencil-square" style={{marginRight: ".5rem"}} />
+                                        Админка
+                                    </Link>
+                                </li>
+                            </ul>
+                    }
+                    
+                    
                 </ul>
             </div>
 
@@ -140,4 +174,10 @@ class SideNavItems extends Component {
 
 };
 
-export default SideNavItems;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(SideNavItems);

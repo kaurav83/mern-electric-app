@@ -60,7 +60,7 @@
             cursor: pointer;
             background: #1c2c42;
             border: .0625rem solid rgb(23, 25, 32);
-            padding: .5rem 0;
+            padding: 1rem 0;
         }
         @include tabletsMin {
             cursor: default;
@@ -119,7 +119,7 @@
         font-size: .8rem;
         @include tablets {
             width: 100%;
-            padding: .5rem;
+            padding: 1rem;
             display: block;
         }
         @include tabletsMin {
@@ -161,7 +161,7 @@
         font-size: .8rem;
         @include tablets {
             width: 100%;
-            padding: .5rem;
+            padding: 1rem;
             display: block;
         }
         @include tabletsMin {
