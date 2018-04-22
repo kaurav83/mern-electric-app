@@ -10,7 +10,16 @@ const LogoutUser = (props) => {
                     }, 2000)
                 })
     return (
-        <div className="logout_container">
+        <div className="logout_container" style={{
+                                                    textAlign: "center",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    fontSize: "1.5rem",
+                                                    fontFamily: 'Oswald',
+                                                    minHeight: "10rem",
+                                                    transform: "translateY(50%)"
+                                                }}>
             Жаль, что Вы нас покидаете :(
         </div>
     );

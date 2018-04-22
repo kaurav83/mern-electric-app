@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { getUsers, userRegister } from '../../actions';
+import { getUsers, userRegister, authenticationAdmin } from '../../actions';
+import {Link} from 'react-router-dom';
+
 
 class Register extends PureComponent {
 
@@ -14,6 +16,7 @@ class Register extends PureComponent {
 
     componentWillMount() {
         this.props.dispatch(getUsers());
+        this.props.dispatch(authenticationAdmin());
     }
 
     hendleInputName = (event) => {
@@ -71,7 +74,7 @@ class Register extends PureComponent {
         return (user.users ?
             user.users.map(item => (
                 <tr key={item._id}>
-                    <td>{item.name}</td>
+                    <td><Link to={`/user`}>{item.name}</Link></td>
                     <td>{item.lastname}</td>
                     <td>{item.email}</td>
                 </tr>
@@ -82,63 +85,83 @@ class Register extends PureComponent {
 
     render() {
         let user = this.props.user;
+        console.log(this.props)
         return (
-            <div className="rl_container">
-                <form onSubmit={this.submitForm}>
-                    <h2>Зарегистрироваться</h2>
+            <div className="form-container">
+                <div className="form-table-view">
+                    <form onSubmit={this.submitForm}
+                        className="form-auth"
+                    >
+                        <h2 className="form-auth__title">Зарегистрироваться</h2>
 
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            placeholder="Введите имя"
-                            value={this.state.name}
-                            onChange={this.hendleInputName}
-                        />
-                    </div>
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            placeholder="Введите фамилию"
-                            value={this.state.lastname}
-                            onChange={this.hendleInputLastname}
-                        />
-                    </div>
-                    <div className="form_element">
-                        <input
-                            type="email"
-                            placeholder="Введите адрес электронной почты"
-                            value={this.state.email}
-                            onChange={this.hendleInputEmail}
-                        />
-                    </div>
-                    <div className="form_element">
-                        <input
-                            type="password"
-                            placeholder="Введите пароль"
-                            value={this.state.password}
-                            onChange={this.hendleInputPassword}
-                        />
-                    </div>
+                        <div className="form-auth__element">
+                            <input
+                                type="text"
+                                placeholder="Введите имя"
+                                value={this.state.name}
+                                onChange={this.hendleInputName}
+                                className="form-auth__input form-auth__input--modif"
+                                required
+                            />
+                        </div>
+                        <div className="form-auth__element">
+                            <input
+                                type="text"
+                                placeholder="Введите фамилию"
+                                value={this.state.lastname}
+                                onChange={this.hendleInputLastname}
+                                className="form-auth__input"
+                                required
+                            />
+                        </div>
+                        <div className="form-auth__element">
+                            <input
+                                type="email"
+                                placeholder="Введите адрес электронной почты"
+                                value={this.state.email}
+                                onChange={this.hendleInputEmail}
+                                className="form-auth__input"
+                                required
+                            />
+                        </div>
+                        <div className="form-auth__element">
+                            <input
+                                type="password"
+                                placeholder="Введите пароль"
+                                value={this.state.password}
+                                onChange={this.hendleInputPassword}
+                                className="form-auth__input"
+                                required
+                            />
+                        </div>
 
-                    <button type="submit">Отправить</button>
-                    <div className="error">{this.state.error}</div>
-                </form>
-                <div className="current_users">
-                    <h4>Текущий пользователь</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Имя</th>
-                                <th>Фамилия</th>
-                                <th>Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.showUsers(user)}
-                        </tbody>
-                    </table>
+                        <button type="submit" className="form-auth__button">Отправить</button>
+                        <div className="error">{this.state.error}</div>
+                    </form>
+                    {
+                        this.props.admin.login ?
+                            this.props.admin.login.isAuth ?
+                                <div className="current_users">
+                                    <h4>Текущий пользователь</h4>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Имя</th>
+                                                <th>Фамилия</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {this.showUsers(user)}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                : null
+                            : null
+                    }
 
                 </div>
+
             </div>
         );
     }
@@ -146,7 +169,8 @@ class Register extends PureComponent {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        admin: state.admin
     }
 }
 

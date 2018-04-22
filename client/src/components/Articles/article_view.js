@@ -15,19 +15,17 @@ class ArticleView extends Component {
     renderArticle = (articles) => {
         return (
             articles.article ?
-                <div className="article-container">
-                    <div className="article">
-                        <h2 className="article__title">{articles.article.name}</h2>
-                        <h5 className="article__author">{articles.article.author}</h5>
-                        <p>{moment(articles.article.createAt).format("DD.MM.YY")}</p>
+                <div className="article">
+                    <h2 className="article__title">{articles.article.name}</h2>
+                    <p className="article__date">{moment(articles.article.createAt).format("DD.MM.YY")}</p>
                         {/* <p className="article__reviewer">Обзор: <span>{articles.admin.name} {articles.admin.lastname}</span></p> */}
-                    </div>
-                    <p className="article-review">
-                       Текс (контент): {articles.article.review}
+                    <p className="article__review">
+                       {articles.article.review}
                     </p>
-                    <div className="article-rating">
+                    <div className="article__rating">
                        Рейтинг статьи: {articles.article.rating}
                     </div>
+                    <h5 className="article__author">Автор: {articles.article.author}</h5>
                 </div>
 
                 : null

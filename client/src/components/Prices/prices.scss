@@ -88,6 +88,9 @@
         }
     }
     &__trBody {
+        &:nth-child(odd) {
+            background: #ddd;
+        }
         &:hover {
             background: $bg-header;
             color: rgba(255, 255, 255, .9);

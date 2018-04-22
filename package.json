@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/kaurav83/mern-electric-app#readme",
   "dependencies": {
+    "animated": "^0.2.2",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
@@ -42,6 +43,7 @@
     "nodemailer": "^4.6.3",
     "react-draft-wysiwyg": "^1.12.1",
     "react-fontawesome": "^1.6.1",
-    "react-slick": "^0.21.0"
+    "react-slick": "^0.21.0",
+    "react-transition-group": "^2.3.1"
   }
 }

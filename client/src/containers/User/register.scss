@@ -1,0 +1,130 @@
+.form-container {
+    
+    @include phonesMin2 {
+        width: 100%;
+    }
+    @include tabletsMin {
+        max-width: 75rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 35rem;
+    }   
+}
+
+.form-table-view {
+    @include phonesMin2 {
+        display: flex;
+        flex-direction: column; 
+    }
+    @include tabletsMin {
+        display: flex;
+        flex-direction: column; 
+    }   
+}
+
+.form-auth {
+    @include phonesMin2 {
+        width: 100%;
+    }
+    @include tabletsMin {
+        margin:  auto;
+        background: $bg-header;
+        padding: .2rem;
+        min-width: 20rem;
+    }   
+    
+    &__title {
+        @include phonesMin2 {
+            padding: 1rem;
+            font-size: 1.3rem;
+            text-align: center;
+            color: $bg-header;
+            font-family: "Oswald", sans-serif;
+        }
+        @include tabletsMin {
+            text-align: center;
+            color: rgba(255, 255, 255, .8);
+            font-family: "Oswald", sans-serif;
+            padding: 1rem;
+            font-size: 1.3rem;
+        }   
+    }
+    
+    &__button {
+        
+        @include phonesMin2 {
+            display: inherit;
+            background: rgba($bg-header, 1);
+            color: #fff;
+            text-transform: uppercase;
+            padding: .3rem .5rem;
+            font-family: "Oswald", sans-serif;
+            transition: color .3s ease-in;
+            border: 0;
+            margin: .5rem auto;
+            &:hover {
+                color: $bg-header;
+                background: rgba($bg-header, .5);
+                transition: color .3s ease-out;
+            }
+        }
+        @include tabletsMin {
+            display: inherit;
+            background: rgba(255, 255, 255, .8);
+            color: $bg-header;
+            text-transform: uppercase;
+            padding: .3rem .5rem;
+            font-family: "Oswald", sans-serif;
+            transition: background .3s ease-in;
+            border: 0;
+            margin: .5rem auto;
+            &:hover {
+                color: rgba($bg-header, 1);;
+                background: #fff;
+                transition: background .3s ease-out;
+            }
+        }   
+    }
+    
+    &__input {
+        @include phonesMin2 {
+            border: .0625rem solid rgba(0, 0, 0, 1);
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            width: 100%;
+            padding: .7rem;
+            &:focus {
+                outline: none;
+            }
+            &--modif {
+                border-top: .0625rem solid rgba(0, 0, 0, 1);
+            }
+            
+        }
+        
+        @include tabletsMin {
+            width: 100%;
+            padding: .5rem;
+            border: .0625rem solid rgba(41, 171, 164, 0.2);
+        }   
+    }
+    &__element {
+        @include phonesMin2 {
+            // padding: .0625rem 0;
+        }
+        @include tabletsMin {
+            padding: .1rem 0;
+        }   
+    }
+    .error {
+        max-width: 25rem;
+        margin: 0 auto;
+        margin-bottom: .5rem;
+        text-align: center;
+    }
+}
+
+

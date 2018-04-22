@@ -1,0 +1,37 @@
+.admin-posts {
+    max-width: 75rem;
+    margin: 2rem auto;
+    padding-bottom: 1rem;
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: $bg-header;
+        margin: 1rem;
+        padding: 1rem 0;
+    }
+}
+
+.admin-posts-table {
+    min-width: 70%;
+    margin: 0 auto;
+    border: .0625rem solid $bg-header;
+    color: $bg-header;
+    &__thead {
+        border: .0625rem solid $bg-header;
+    }
+    &__th {
+        border: .0625rem solid $bg-header;
+        padding: .2rem 0;
+    }
+    &__tr:nth-child(odd) {
+        border: .0625rem solid $bg-header;
+        background: #ccc;
+    }
+    &__td {
+        border: .0625rem solid $bg-header;
+        padding: .2rem 0;
+    }
+    &__tbody {
+        // padding: 1rem 0;
+    }
+}

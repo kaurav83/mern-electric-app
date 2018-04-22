@@ -29,12 +29,12 @@ class ArticlesContainer extends Component {
     render() {
         
         return (
-            <div>
-                <ul className="article">
+            <div className="articles">
+                <ul className="articles__list">
                     {this.renderItems(this.props.article)}
                 </ul>
                 <div 
-                    className="loadmore"
+                    className="articles__loadmore"
                     onClick={this.loadMore}
                 >
                     Загрузить еще статьи

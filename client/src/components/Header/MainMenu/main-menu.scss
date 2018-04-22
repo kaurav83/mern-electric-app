@@ -21,6 +21,9 @@
     &__item {
         cursor: pointer;
         margin: 0 0 0 1rem;
+        &--modif {
+            background: $bg-header;;
+        }
     }
     &__link {
         display: block;
@@ -37,11 +40,31 @@
     }
     &__selected-service {
         color: rgba(255, 255, 255, .8);
+        padding: 1.2rem .5rem;
+        display: inline-block;
+        background: $bg-header;
+        transition: .2s ease-in;
     }
     .fa-caret-down {
         margin-left: .2rem;
         color: rgba(255, 255, 255, .8);
         font-size: .9rem;
+        padding-right: .5rem;
+    }
+    .fa-caret-up {
+        margin-left: .2rem;
+        color: rgba(255, 255, 255, .8);
+        font-size: .9rem;
+        padding-right: .5rem;
+    }
+    &__simple-link {
+        color: rgba(255, 255, 255, .8);
+        padding: 1.2rem .5rem;
+        display: inline-block;
+        &:hover {
+            color: $bg-header;
+            transition: .2s ease-in;
+        }
     }
 }
 
@@ -49,19 +72,19 @@
     position: absolute;
     z-index: 10;
     padding: .5rem .5rem;
-    background-color: $bg-second;
-    top: 8rem;
-    // transform: translate(0, 80%);
+    background: $bg-header;
+    // top: 8rem;
+    
     &__link {
         color: rgba(255, 255, 255, .8);
         display: block;
         padding: .5rem 0;
         &:hover {
-            color: $bg-header;
+            color: $bg-second;
         }
     }
 
     &__selected {
-        color: $bg-header;
+        color: #FF5722;
     }
 }

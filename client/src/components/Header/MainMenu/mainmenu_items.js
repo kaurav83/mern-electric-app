@@ -156,25 +156,34 @@ class MainMenuItems extends Component {
                     }
                 </ul> : null
             return (
-                <li key={i} className={item.type} onClick={this.showMenu}> 
-                    <a className={item.activeClass}>
-                        {item.text}
-                    </a><i className="fa fa-caret-down"></i>
-                    {dropdown}
-                </li>
+                
+                this.state.isOpened ?
+                        <li key={i} className="main-menu__item main-menu__item--modif" onClick={this.showMenu}> 
+                            <a className={item.activeClass}>
+                                {item.text}
+                            </a><i className="fa fa-caret-up"></i>
+                            {dropdown}
+                        </li>
+                : 
+                        <li key={i} className={item.type} onClick={this.showMenu}> 
+                            <a className="main-menu__simple-link">
+                                {item.text}
+                            </a><i className="fa fa-caret-down"></i>
+                            {dropdown}
+                        </li>
+                
             )
             
         } else {
             return (
                 <li key={i} className={item.type}> 
-                <NavLink exact to={item.link} 
-                    activeClassName={item.activeClass}
-                    className="main-menu__link"
-                >
-                    {item.text}
-                    
-                </NavLink>
-            </li>
+                    <NavLink exact to={item.link} 
+                        activeClassName={item.activeClass}
+                        className="main-menu__link"
+                    >
+                        {item.text}
+                    </NavLink>
+                </li>
             )
         }
         

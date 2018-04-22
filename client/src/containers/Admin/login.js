@@ -37,26 +37,31 @@ class LoginAdmin extends Component {
     render() {
         let admin = this.props.admin;
         return (
-            <div className="login-container">
-                <form onSubmit={this.submitForm}>
-                    <h2>Авторизация admin</h2>
-                    <div className="form-element">
+            <div className="form-container">
+                <div className="form-table-view">
+                   <form onSubmit={this.submitForm} 
+                        className="form-auth"
+                   >
+                    <h2 className="form-auth__title">Авторизация admin</h2>
+                    <div className="form-auth__element">
                         <input 
                             type="email"
                             placeholder="Введите ваш email"
                             value={this.state.email}
                             onChange={this.handleInputEmail}
+                            className="form-auth__input form-auth__input--modif"
                         />
                     </div>
-                    <div className="form-element">
+                    <div className="form-auth__element">
                         <input 
                             type="password"
                             placeholder="Введите пароль"
                             value={this.state.password}
                             onChange={this.handleInputPassword}
+                            className="form-auth__input"
                         />
                     </div>
-                    <button className="form-button" type="submit">Отправить</button>
+                    <button className="form-auth__button" type="submit">Отправить</button>
                     <div className="error">
                         {
                             admin.login ? 
@@ -66,7 +71,9 @@ class LoginAdmin extends Component {
                             : null
                         }
                     </div>
-                </form>
+                </form> 
+                </div>
+                
             </div>
         );
     }
