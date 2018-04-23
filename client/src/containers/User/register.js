@@ -85,7 +85,6 @@ class Register extends PureComponent {
 
     render() {
         let user = this.props.user;
-        console.log(this.props)
         return (
             <div className="form-container">
                 <div className="form-table-view">

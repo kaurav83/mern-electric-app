@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 import {connect} from 'react-redux';
 // import {authentication} from '../../../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SideNavItems extends Component {
     constructor() {
@@ -45,6 +46,11 @@ class SideNavItems extends Component {
                     <li onClick={this.showMenu} className="sidenav-items__button">
                         <FontAwesome name="bolt" style={{marginRight: ".9rem"}} />
                         Услуги
+                        <ReactCSSTransitionGroup
+                            transitionName = 'menulinks'
+                            transitionEnterTimeout={300}
+                            transitionLeaveTimeout={300}
+                        >
                         {
                             this.state.showMenu
                                 ? (
@@ -90,7 +96,7 @@ class SideNavItems extends Component {
                                 )
                         }
 
-
+                        </ReactCSSTransitionGroup>
                     </li>
                     <li className="sidenav-items__item">
                         <Link to="/prices" className="sidenav-items__link">

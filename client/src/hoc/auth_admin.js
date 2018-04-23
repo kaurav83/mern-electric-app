@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {authenticationAdmin} from '../actions';
+import { connect } from 'react-redux';
+import { authenticationAdmin } from '../actions';
 
-export default function(ComposedAdminClass, reloadAdmin) {
+export default function (ComposedAdminClass, reloadAdmin) {
     class AuthenticationCheckAdmin extends Component {
         state = {
             loadingAdmin: true
@@ -11,7 +11,7 @@ export default function(ComposedAdminClass, reloadAdmin) {
         componentWillMount() {
             this.props.dispatch(authenticationAdmin());
         }
-        
+
         componentWillReceiveProps(nextProps) {
             this.setState({
                 loadingAdmin: false
@@ -29,7 +29,12 @@ export default function(ComposedAdminClass, reloadAdmin) {
 
         render() {
             if (this.state.loadingAdmin) {
-                return <div className="loader">...Loading</div>
+                return <div className="loader" style={{
+                                                        position: 'absolute',
+                                                        height: "30%",
+                                                        left: '50%',
+                                                        transform: 'translate(-50%, 50%)'
+                                                        }}><img src={require('../images/preloader.gif')} alt="...Загрузка"/></div>
             }
             return (
                 <div>

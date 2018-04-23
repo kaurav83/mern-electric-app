@@ -3,6 +3,7 @@ import Logo from '../Logo/logo';
 import FooterMeinmenu from './footer_meinmenu';
 import FooterSubmenu from './footer_submenu';
 import SocialNetwork from './social_network';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 
 class Footer extends Component {
     constructor() {
@@ -65,18 +66,27 @@ class Footer extends Component {
                     </div>
                     <div className="footer__mobile">
                         <h3 className="footer__title" onClick={this.showList}>Главное меню</h3>
-                        {
-                            this.state.showList
-                            ? (
-                                <div
-                                    ref={(element) => {
-                                        this.dropdownList = element;
-                                    }}
-                                >
-                                    <FooterMeinmenu />
-                                </div>
-                            ) : (null)
-                        }
+                        <ReactCSSTransitionGroup
+                            transitionName = 'menulinks'
+                            transitionEnterTimeout={300}
+                            transitionLeaveTimeout={300}
+                        >
+                            
+                                {
+                                this.state.showList
+                                ? (
+                                    <div
+                                        ref={(element) => {
+                                            this.dropdownList = element;
+                                        }}
+                                    >
+                                        <FooterMeinmenu />
+                                    </div>
+                                ) : (null)
+                            }
+                            
+                        </ReactCSSTransitionGroup>
+                        
                     </div>
 
                     <div className="footer__desktop">
@@ -85,6 +95,11 @@ class Footer extends Component {
                     </div>
                     <div className="footer__mobile">
                         <h3 className="footer__title" onClick={this.showListSub}>Наши услуги</h3>
+                        <ReactCSSTransitionGroup
+                            transitionName = 'menulinks'
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}
+                        >
                         {
                             this.state.showListSub
                             ? (
@@ -97,6 +112,7 @@ class Footer extends Component {
                                 </div>
                             ) : (null)
                         }
+                        </ReactCSSTransitionGroup>
                     </div>
 
                     <div className="social-container">

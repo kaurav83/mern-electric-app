@@ -4,10 +4,10 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home/home';
 import Layout from './hoc/layout';
 import Prices from './components/Prices/prices';
-import Portfolio from './components/Portfolio/portfolio';
+// import Portfolio from './components/Portfolio/portfolio';
 import Articles from './components/Articles/articles';
-import Reviews from './components/Reviews/reviews';
-import Fooldesk from './components/Fooldesk/fooldesk';
+// import Reviews from './components/Reviews/reviews';
+// import Fooldesk from './components/Fooldesk/fooldesk';
 import Dashboard from './components/Dashboard/dashboard';
 import Feedback from './components/Feedback/feedback';
 // import Register from './components/Register/register';
@@ -31,16 +31,14 @@ const Routes = () => {
         <Layout>
             <Switch>
                 <Route path="/" exact component={Auth(Home, null)} />
-                <Route path="/prices" exact component={Prices} />
-                <Route path="/portfolio" exact component={Portfolio} />
+                <Route path="/prices" exact component={Auth(Prices, null)} />
+                {/* <Route path="/portfolio" exact component={Portfolio} /> */}
                 <Route path="/articles" exact component={Auth(Articles, true)} />
-                <Route path="/reviews" exact component={Reviews} />
-                <Route path="/fooldesk" exact component={Fooldesk} />
+                {/* <Route path="/reviews" exact component={Reviews} /> */}
+                {/* <Route path="/fooldesk" exact component={Fooldesk} /> */}
                 <Route path="/dashboard" exact component={AuthAdmin(Dashboard, true)} />
-                <Route path="/feedback" exact component={Feedback} />
-                {/* <Route path="/register" exact component={Register} /> */}
-                {/* <Route path="/login" exact component={Login} /> */}
-                <Route path="/services/:topicId" exact component={Service} />
+                <Route path="/feedback" exact component={Auth(Feedback, null)} />
+                <Route path="/services/:topicId" exact component={Auth(Service, null)} />
                 <Route path="/articles/:articleId" exact component={ArticleView} />
                 <Route path="/login-admin" exact component={AuthAdmin(LoginAdmin, false)} />
                 <Route path="/login-user" exact component={Auth(LoginUser, false)} />

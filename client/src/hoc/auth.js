@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {authentication} from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
 export default function (ComposedClass, reload) {
@@ -29,12 +30,36 @@ export default function (ComposedClass, reload) {
 
         render() {
             if (this.state.loading) {
-                return <div className="loader">Loading...</div>
+                return <div className="loader" style={{position: 'absolute',
+                                                        height: "30%",
+                                                        left: '50%', 
+                                                        transform: 'translate(-50%, 50%)'}}>
+                            <img src={require('../images/preloader.gif')} alt="...Загрузка"/>
+                        </div>
             }
             
             return (
                 <div>
+                    <ReactCSSTransitionGroup
+                        transitionAppear={true}
+                        transitionAppearTimeout={600}
+                        transitionEnterTimeout={600}
+                        transitionLeaveTimeout={200}
+                        transitionName={this.props.match.path === '/prices' 
+                                                                || '/' 
+                                                                || '/articles' 
+                                                                || '/dashboard' 
+                                                                || '/feedback' 
+                                                                || '/register'
+                                                                || '/user/logout'
+                                                                || '/login-user'
+                                                                || '/login-admin'
+                                                                || '/services/:topicId'
+                                                                || '/dashboard' ?
+                                                                     'SlideIn' : 'SlideOut'}
+                    >
                     <ComposedClass {...this.props} user={this.props.user} />
+                    </ReactCSSTransitionGroup>
                 </div>
             );
         }

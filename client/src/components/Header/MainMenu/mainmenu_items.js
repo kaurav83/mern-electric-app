@@ -194,6 +194,7 @@ class MainMenuItems extends Component {
     )
 
     render() {
+        
         return (
         <ul className="main-menu">
             {this.showItems()}
